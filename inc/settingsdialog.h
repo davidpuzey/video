@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 #include <QWidget>
+#include <QSettings>
 
 class SettingsDialog : public QWidget
 {
@@ -10,6 +11,11 @@ class SettingsDialog : public QWidget
 
     public:
         SettingsDialog();
+
+    private slots:
+        QSettings *settings;
+        void loadSettings();
+        void saveSettings();
 };
 
 #endif

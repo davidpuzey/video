@@ -6,12 +6,12 @@ ControlDialog::ControlDialog()
     /* Window Properties */
     setAttribute(Qt::WA_QuitOnClose, true);
 
-    SettingsDialog *settingsDialog = new SettingsDialog;
+    settings = new SettingsDialog;
 
     QPushButton *settingsButton = new QPushButton(tr("Settings"));
     QPushButton *showButton = new QPushButton(tr("Show"));
 
-    connect(settingsButton, SIGNAL(clicked()), settingsDialog, SLOT(show()));
+    connect(settingsButton, SIGNAL(clicked()), settings, SLOT(show()));
 
     QHBoxLayout *optionLayout = new QHBoxLayout;
     optionLayout->addWidget(settingsButton);

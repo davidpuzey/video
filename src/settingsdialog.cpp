@@ -4,6 +4,7 @@ SettingsDialog::SettingsDialog()
 {
     int i;
     int screens = QApplication::desktop()->screenCount();
+    settings = new QSettings("config", QSettings::IniFormat);
 
     QLabel *screenLabel = new QLabel(tr("Screen"));
     QComboBox *screenComboBox = new QComboBox;
@@ -15,6 +16,8 @@ SettingsDialog::SettingsDialog()
     QPushButton *saveButton = new QPushButton(tr("Save"));
     QPushButton *cancelButton = new QPushButton(tr("Cancel"));
 
+    connect(saveButton, SIGNAL(clicked()), this, SLOT(saveSettings()));
+    connect(saveButton, SIGNAL(clicked()), this, SLOT(hide()));
     connect(cancelButton, SIGNAL(clicked()), this, SLOT(hide()));
 
     QGridLayout *mainLayout = new QGridLayout;
@@ -25,4 +28,12 @@ SettingsDialog::SettingsDialog()
     setLayout(mainLayout);
 
     setWindowTitle(tr("Settings"));
+}
+
+void SettingsDialog::loadSettings()
+{
+}
+
+void SettingsDialog::saveSettings()
+{
 }

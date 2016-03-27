@@ -7,6 +7,8 @@
 #include <QMediaService>
 #include <QMetaDataWriterControl>
 
+#include "inc/settingsdialog.h"
+
 class ControlDialog : public QWidget
 {
     Q_OBJECT
@@ -18,6 +20,7 @@ class ControlDialog : public QWidget
         QMediaPlayer *player;
         QListWidget *vidList;
         QFileInfoList videoFiles;
+        SettingsDialog *settings;
 
     private slots:
         void selectVideo();
